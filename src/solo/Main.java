@@ -4,10 +4,14 @@ import java.util.Scanner;
 
 public class Main {
 	static Scanner scn = new Scanner(System.in);
+	static Menu Mainmenu = new Menu();
+	static ShopSet Shpst = new ShopSet();
+	static Item Itm = new Item();
+	static Shop shop = new Shop();
+	static Invoice inv = new Invoice();
+	
 	public static void main(String[] args) {
 	        String choose = Main.scn.next();
-			Menu Mainmenu = new Menu();
-			ShopSet Shpst = new ShopSet();
 			
 	        switch (choose) {
 	        case "1":
