@@ -55,16 +55,25 @@ public class ShopSet {
 	                	System.out.println("Shop Data :");
 	                	System.out.println("Tel :");
 	                	Main.shop.tel = scn.nextInt();
-	                	System.err.println();
+	                	System.err.println("FAX:");
+	                	Main.shop.fax = scn.nextInt();
+	                	System.out.println("Email:");
+	                	Main.shop.email = scn.next();
+	                	System.out.println("Website :");
+	                	Main.shop.website = scn.next();
+	                	break;
+	                	
+	                	
 	                case "4":
-	                	shopsetLoop = false;
+	                    shopsetLoop = false;
+	                    Main.Mainmenu.Menu();
 	                    break;
 
-	                    default:
+	                default:
 	                    System.out.println("Invalid option. Please choose again.");
 	                    break;
 	            }
 	           
 	        }
+	        }
 	  }
-  }
