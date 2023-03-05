@@ -15,6 +15,10 @@ public class ShopSet {
 	            String choose = Main.scn.next();
 	            switch (choose) {
 	                case "1":
+	                	Boolean Load = true;
+                        while (Load) {
+	                	System.out.println("INVOICE DETAILS :");
+	                	
                         System.out.println("Enter Invoice NO: ");
                         Main.inv.invoNO = scn.nextInt();
                         
@@ -31,7 +35,15 @@ public class ShopSet {
 	                	Main.inv.totalAmount = scn.nextDouble();
 	                	
                         Main.inv.invoiceList.add(Main.inv);
-                        
+                        System.out.println("Do you want to add more? y/n");
+                        String more = scn.next();
+                        if (more.equalsIgnoreCase("y")) {
+                        	 Load = true;
+                        } else {
+                            Load = false;
+   }
+                        	
+    }
 	                    break;
 	                case "4":
 	                	shopsetLoop = false;
