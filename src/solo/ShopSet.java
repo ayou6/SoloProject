@@ -45,6 +45,17 @@ public class ShopSet {
                         	
     }
 	                    break;
+	                    
+	                case "2":
+	                	System.out.println("Enter Shop Name :");
+	                	Main.shop.shopName = scn.next();
+	                	break;
+	                	
+	                case "3":
+	                	System.out.println("Shop Data :");
+	                	System.out.println("Tel :");
+	                	Main.shop.tel = scn.nextInt();
+	                	System.err.println();
 	                case "4":
 	                	shopsetLoop = false;
 	                    break;

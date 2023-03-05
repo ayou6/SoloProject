@@ -11,6 +11,7 @@ public class Main {
 	static Invoice inv = new Invoice();
 	
 	public static void main(String[] args) {
+		Mainmenu.Menu();
 	        String choose = Main.scn.next();
 			
 	        switch (choose) {
