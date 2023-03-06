@@ -66,7 +66,7 @@ public class ShopSet {
 	                	
 	                case "4":
 	                    shopsetLoop = false;
-	                    Main.Mainmenu.Menu();
+	                   
 	                    break;
 
 	                default:

@@ -11,6 +11,8 @@ public class Main {
 	static Invoice inv = new Invoice();
 	
 	public static void main(String[] args) {
+		boolean loop = false;
+		while (loop == false) {
 		Mainmenu.Menu();
 	        String choose = Main.scn.next();
 			
@@ -44,12 +46,16 @@ public class Main {
             	break;
             	
             case "8":
+            	System.out.println("Good Bye!!!");
+                loop = true;
+
                 break;
 
-                default:
-                System.out.println("Invalid option. Please choose again.");
-                break;	
 
+            default:
+            	System.out.println("Invalid option. Please choose again.");
+            	break;	
         	}
         }      
 	}
+}
