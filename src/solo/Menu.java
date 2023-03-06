@@ -23,6 +23,42 @@ public class Menu {
 	   System.out.println("[3] change price");
 	   System.out.println("[4] Report");
        System.out.println("[5] Go Back");
-   
-} 
+       String choose = Main.scn.next();
+       switch (choose) {
+           case "1":
+           	Boolean Load = true;
+               while (Load) {
+            	   Main.Itm.addItem();
+            	   
+            	   
+            	   
 }
+               break;
+               
+           case "2":
+        	   Main.Itm.deleteItem();
+        	   
+
+           	break;
+           	
+           case "3":
+
+           	break;
+           	
+           	
+           case "4":
+              
+               break;
+               
+           case "5":
+        	   break;
+        	   
+           default:
+               System.out.println("Invalid option. Please choose again.");
+               break;
+       }
+      
+   }
+   
+}
+   

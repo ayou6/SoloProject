@@ -33,6 +33,7 @@ public class Main {
                 
             case "2":
             	Mainmenu.Menu2();
+            	
             	break;
             	
             case "3":
