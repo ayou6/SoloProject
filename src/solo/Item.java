@@ -1,7 +1,9 @@
 package solo;
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 import java.nio.file.*;
 
@@ -161,6 +163,7 @@ public class Item {
                 load = false;
                 break;
             }
+
         }
     }
     

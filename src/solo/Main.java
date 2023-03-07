@@ -1,5 +1,8 @@
 package solo;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.Scanner;
 
 public class Main {
@@ -47,8 +50,26 @@ public class Main {
                     System.out.println("Enter Invoice NO: ");
                     inv.setInvoNO(scn.nextInt());
                     Itm.saveItem();
-                    
-                   /* 	
+                    /* 
+                    try {
+                        // create a FileOutputStream to write the serialized object to a file
+                        FileOutputStream fileOut = new FileOutputStream("itemList.ser");
+                        
+                        // create an ObjectOutputStream to write the object to the file
+                        ObjectOutputStream out = new ObjectOutputStream(fileOut);
+                        
+                        // write the object to the file
+                        out.writeObject(Main.Shpst.itemList);
+                        
+                        // close the ObjectOutputStream and the FileOutputStream
+                        out.close();
+                        fileOut.close();
+                        
+                        System.out.println("Serialized data is saved in itemList.ser");
+                    } catch (IOException e) {
+                        System.out.println("Error while serializing object: " + e.getMessage());
+                    }
+                  	
                      System.out.println("+--------------------------------------------------------------------------+");
                      System.out.println("|                         INVOICE DETAILS                   |");
                      System.out.println("+--------------------------------------------------------------------------+");
