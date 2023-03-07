@@ -12,6 +12,7 @@ public class Invoice {
     private String email;
     private int fax;
     private String website;
+	private ArrayList<Invoice> invoiceList;
 
 
     public int getInvoNO() {
@@ -83,7 +84,7 @@ public class Invoice {
     }
 
     public ArrayList<Invoice> getInvoiceList() {
-        return invoiceList;
+        return getInvoiceList();
     }
 
     public void setInvoiceList(ArrayList<Invoice> invoiceList) {
