@@ -84,15 +84,29 @@ public class Item {
         }
         System.out.println("Item not found.");
     }
+    
+    public String stringup() {
+    	return "Item{" +
+    			"id=" + id +
+    			", name='" + itemName + '\'' +
+    			", Price=" + price +
+    			'}';
+    }
 
     public static void reportAllItems() {
-        System.out.println("-----------");
         System.out.println("Report All Items");
-        System.out.println("-----------");
+        System.out.println("-----------------------");
+        for (Item item : itemList) {
+        System.out.println(item.stringup());
+        }
+        System.out.println("-----------------------");
+
+        
 
         if (itemList.isEmpty()) {
             System.out.println("No items to report.");
             return;
         }
 }
+    
 }

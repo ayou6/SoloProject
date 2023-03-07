@@ -32,6 +32,8 @@ public class Main {
                 break;
                 
             case "2":
+        		cntStat2++;
+
             	Mainmenu.Menu2();
             	
             	break;
@@ -69,8 +71,8 @@ public class Main {
         		cntStat5++;
             	break;
             case "6":
-            	/*{
             	cntStat6++;
+            	/*{
 				int x = 0;
 				boolean loop1 = true;
 				while (loop1) {
@@ -95,16 +97,17 @@ public class Main {
 
             	
             case "7":
-        		cntStat7++;
-     		   System.out.println("[1] Shop Settings" + cntStat1);
-    		   System.out.println("[2] Manage Shop Items" + cntStat2);
-    		   System.out.println("[3] Create New Invoice" + cntStat3);
-    		   System.out.println("[4] Report: Statistics " + cntStat4);
-    		   System.out.println("[5] Report: All Invoices" + cntStat5);
-    		   System.out.println("[6] Search" + cntStat6);
-    		   System.out.println("[7] Program Statistics" + cntStat7);
-    		   System.out.println("[8] Exit" + cntStat8);;
-            	break;
+                cntStat7++;
+                System.out.println("[1] Shop Settings " + cntStat1);
+                System.out.println("[2] Manage Shop Items " + cntStat2);
+                System.out.println("[3] Create New Invoice " + cntStat3);
+                System.out.println("[4] Report: Statistics " + cntStat4);
+                System.out.println("[5] Report: All Invoices " + cntStat5);
+                System.out.println("[6] Search " + cntStat6);
+                System.out.println("[7] Program Statistics " + cntStat7);
+                System.out.println("[8] Exit " + cntStat8);
+                break;
+
             	
             case "8":
             	cntStat8++;
