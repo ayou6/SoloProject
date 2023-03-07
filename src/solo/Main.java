@@ -39,28 +39,29 @@ public class Main {
             	break;
             	
             case "3":
-        		cntStat3++;
-        		/*
-        		if (Main.inv.invoiceList.isEmpty()) {
-					System.out.println("Add Invoice!");
-				} else {
-					System.out.printf("%20s %20s %20s %20s %20s\n", "INVO NO", "Tel", "Fax",
-							"Email", "website");
-					System.out.println(
-							"__________________________________________________________________________________________________________________");
-					for (int i = 0; i < Main.inv.invoiceList.size(); i++) {
-						for (int j = 0; j < Main.inv.invoiceList.size(); j++) {
-							System.out.printf("%20s %20s %20s %20s %20s\n", Main.inv.invoNO,
-									mySchool.studentList.get(i).stuName, mySchool.studentList.get(i).mailList,
-									mySchool.subjectList.get(j),
-									mySchool.studentList.get(i).studentSubjectList.get(j).studentMark.mark);
-						}
-					}
-				}
+                cntStat3++;
 
-			}
-            	*/
-            	break;
+               
+                    System.out.println("Add Invoice!");
+        
+
+                     System.out.println("+--------------------------------------------------------------------------+");
+                     System.out.println("|                         INVOICE DETAILS                   |");
+                     System.out.println("+--------------------------------------------------------------------------+");
+                     System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website");
+                     System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website");
+                     System.out.println("+---------------------------------------------------------------------------+");
+                     for (int i = 0; i < Main.Shpst.invoiceList.size(); i++) {
+                     System.out.printf("| %-10d | %-15d | %-15d | %-15s | %-10s |\n", Main.Shpst.invoiceList.get(i).getInvoNO(),
+                     Main.Shpst.invoiceList.get(i).getPhone(), Main.Shpst.invoiceList.get(i).getFax(),
+                     Main.Shpst.invoiceList.get(i).getEmail(), Main.Shpst.invoiceList.get(i).getWeb());
+                        }
+                     System.out.println("+-----------------------------------------------------------+");
+                    
+
+                
+                break;
+
             	
             case "4":
         		cntStat4++;

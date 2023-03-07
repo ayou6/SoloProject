@@ -12,7 +12,7 @@ public class Item {
     double price;
     int quantity;
 
-    static ArrayList<Item> itemList = new ArrayList<Item>();
+
 
     public void addItem() {
         boolean load = true;
@@ -34,7 +34,7 @@ public class Item {
             newItem.id = id;
             newItem.price = price;
             newItem.quantity = quantity;
-            itemList.add(newItem);
+            Main.Shpst.itemList.add(newItem);
 
             System.out.println("Item added successfully.");
             System.out.println("Do you want to add more? y/n");
@@ -53,9 +53,9 @@ public class Item {
         int id = scn.nextInt();
 
         boolean found = false;
-        for (Item item : itemList) {
+        for (Item item : ShopSet.itemList) {
             if (item.id == id) {
-                itemList.remove(item);
+            	ShopSet.itemList.remove(item);
                 found = true;
                 break;
             }
@@ -75,7 +75,7 @@ public class Item {
         System.out.print("Enter new item price: ");
         double newPrice = scn.nextDouble();
 
-        for (Item item : itemList) {
+        for (Item item : Main.Shpst.itemList) {
             if (item.id == itemId) {
                 item.price = newPrice;
                 System.out.println("Item price changed successfully!");
@@ -96,14 +96,14 @@ public class Item {
     public static void reportAllItems() {
         System.out.println("Report All Items");
         System.out.println("-----------------------");
-        for (Item item : itemList) {
+        for (Item item : Main.Shpst.itemList) {
         System.out.println(item.stringup());
         }
         System.out.println("-----------------------");
 
         
 
-        if (itemList.isEmpty()) {
+        if (Main.Shpst.itemList.isEmpty()) {
             System.out.println("No items to report.");
             return;
         }

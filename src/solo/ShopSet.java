@@ -1,8 +1,15 @@
 package solo;
 
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Scanner;
 
 public class ShopSet {
+	String shopName;
+	String email;
+	String website;
+    int tel;
+    int fax;
 	static Scanner scn = new Scanner(System.in);
 
    public static void ShopSet() {
@@ -20,21 +27,21 @@ public class ShopSet {
 	                	System.out.println("INVOICE DETAILS :");
 	                	
                         System.out.println("Enter Invoice NO: ");
-                        Main.inv.invoNO = scn.nextInt();
+                        Main.inv.setInvoNO(scn.nextInt());
                         
                         System.out.println("Enter Costumer Name");
-                        Main.inv.cosName = scn.next();
+                        Main.inv.setCosName(scn.next());
                         
                         System.out.println("Enter Phone NO :");
-	                	Main.inv.phone = scn.nextInt();
+	                	Main.inv.setPhone(scn.nextInt());
 	                	
 	                	System.out.println("No Of Items");
-	                	Main.inv.numberOfItems = scn.nextInt();
+	                	Main.inv.setNumberOfItems(scn.nextInt());
 	                	
 	                	System.out.println("Total :");
-	                	Main.inv.totalAmount = scn.nextDouble();
+	                	Main.inv.setTotalAmount(scn.nextDouble());
 	                	
-                        Main.inv.invoiceList.add(Main.inv);
+                        invoiceList.add(Main.inv);
                         System.out.println("Do you want to add more? y/n");
                         String more = scn.next();
                         if (more.equalsIgnoreCase("y")) {
@@ -76,4 +83,8 @@ public class ShopSet {
 	           
 	        }
 	        }
+   static ArrayList<Invoice> invoiceList = new ArrayList<>();
+   static ArrayList<Item> itemList = new ArrayList<Item>();
+   HashSet <String> mailList = new HashSet<String>();
+
 	  }
