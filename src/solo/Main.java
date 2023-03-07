@@ -43,13 +43,18 @@ public class Main {
 
                
                     System.out.println("Add Invoice!");
-        
-
+                    
+                    System.out.println("Enter Invoice NO: ");
+                    inv.setInvoNO(scn.nextInt());
+                    System.out.println("Enter Item ID: ");
+                    Shpst.itemList.get
+                    
+                    	
                      System.out.println("+--------------------------------------------------------------------------+");
                      System.out.println("|                         INVOICE DETAILS                   |");
                      System.out.println("+--------------------------------------------------------------------------+");
                      System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website");
-                     System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website");
+                     System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", Main.inv.getInvoNO(), "24574", "244042", "laban@s.com", "w-394.com");
                      System.out.println("+---------------------------------------------------------------------------+");
                      for (int i = 0; i < Main.Shpst.invoiceList.size(); i++) {
                      System.out.printf("| %-10d | %-15d | %-15d | %-15s | %-10s |\n", Main.Shpst.invoiceList.get(i).getInvoNO(),
