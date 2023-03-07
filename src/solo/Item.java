@@ -1,7 +1,9 @@
 package solo;
-
-import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
+import java.nio.file.*;
 
 public class Item {
 
@@ -112,5 +114,56 @@ public class Item {
     public int getId() {
         return id;
     }
+    
+
+    public void saveItem() {
+        boolean load = true;
+        while (load) {
+            System.out.print("Enter item name: ");
+            String itemName = scn.next();
+            System.out.print("Enter item ID: ");
+            int id = scn.nextInt();
+            scn.nextLine();
+            System.out.print("Enter item price: ");
+            double price = scn.nextDouble();
+            scn.nextLine(); 
+            System.out.print("Enter item quantity: ");
+            int quantity = scn.nextInt();
+            scn.nextLine();
+
+            Item newItem = new Item();
+            newItem.itemName = itemName;
+            newItem.id = id;
+            newItem.price = price;
+            newItem.quantity = quantity;
+            Main.Shpst.itemList.add(newItem);
+
+
+            try {
+                Path dirPath = Paths.get("C:\\Users\\Lenovo\\eclipse-workspace\\InvoiceSolo/Soloproject");
+                if (!Files.exists(dirPath)) {
+                    Files.createDirectories(dirPath);
+                }
+                String filePath = "C:\\Users\\Lenovo\\eclipse-workspace\\InvoiceSolo/Soloproject/invoice.txt";
+                BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
+                writer.write(itemName + "," + id + "," + price + "," + quantity + "\n");
+                writer.close();
+                System.out.println("Item added successfully.");
+            } catch (IOException e) {
+                System.out.println("Error writing to file");
+            }
+
+            System.out.println("Do you want to add more items? y/n");
+            String more = scn.next();
+            if (more.equalsIgnoreCase("y")) {
+                load = true;
+            } else {
+                load = false;
+                break;
+            }
+        }
+    }
+    
+    
     
 }

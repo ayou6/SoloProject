@@ -46,10 +46,9 @@ public class Main {
                     
                     System.out.println("Enter Invoice NO: ");
                     inv.setInvoNO(scn.nextInt());
-                    System.out.println("Enter Item ID: ");
-                    Shpst.itemList.get
+                    Itm.saveItem();
                     
-                    	
+                   /* 	
                      System.out.println("+--------------------------------------------------------------------------+");
                      System.out.println("|                         INVOICE DETAILS                   |");
                      System.out.println("+--------------------------------------------------------------------------+");
@@ -62,7 +61,7 @@ public class Main {
                      Main.Shpst.invoiceList.get(i).getEmail(), Main.Shpst.invoiceList.get(i).getWeb());
                         }
                      System.out.println("+-----------------------------------------------------------+");
-                    
+                    */
 
                 
                 break;
@@ -117,8 +116,11 @@ public class Main {
             	
             case "8":
             	cntStat8++;
-            	System.out.println("Good Bye!!!");
+                System.out.print("Are you sure you want to exit? (Y/N): ");
+                String confirm = scn.next();
+                if (confirm.equalsIgnoreCase("Y")) {
                 loop = true;
+           }
 
                 break;
 
@@ -128,5 +130,6 @@ public class Main {
             	break;	
         	}
         }      
+		System.out.println("Good Bye!!!");
 	}
 }

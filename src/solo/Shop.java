@@ -9,7 +9,8 @@ public class Shop {
     int tel;
     int fax;
     
-    HashSet <String> mailList = new HashSet<String>();
+
+    
 }
 	
 

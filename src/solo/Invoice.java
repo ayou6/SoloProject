@@ -13,7 +13,6 @@ public class Invoice {
     private int fax;
     private String website;
 
-    ArrayList<Invoice> invoiceList = new ArrayList<>();
 
     public int getInvoNO() {
         return invoNO;
