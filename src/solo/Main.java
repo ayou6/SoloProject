@@ -10,8 +10,8 @@ public class Main {
 	static Menu Mainmenu = new Menu();
 	static ShopSet Shpst = new ShopSet();
 	static Item Itm = new Item();
-	static Shop shop = new Shop();
-	static Invoice inv = new Invoice();
+	public static Invoice Inv = new Invoice();
+	static Shop myShop = new Shop();
 	
 	public static void main(String[] args) {
 		int cntStat1 = 0;
@@ -48,48 +48,15 @@ public class Main {
                     System.out.println("Add Invoice!");
                     
                     System.out.println("Enter Invoice NO: ");
-                    inv.setInvoNO(scn.nextInt());
+                    Inv.setInvoNO(scn.nextInt());
                     Itm.saveItems();
-                    /* 
-                    try {
-                        // create a FileOutputStream to write the serialized object to a file
-                        FileOutputStream fileOut = new FileOutputStream("itemList.ser");
-                        
-                        // create an ObjectOutputStream to write the object to the file
-                        ObjectOutputStream out = new ObjectOutputStream(fileOut);
-                        
-                        // write the object to the file
-                        out.writeObject(Main.Shpst.itemList);
-                        
-                        // close the ObjectOutputStream and the FileOutputStream
-                        out.close();
-                        fileOut.close();
-                        
-                        System.out.println("Serialized data is saved in itemList.ser");
-                    } catch (IOException e) {
-                        System.out.println("Error while serializing object: " + e.getMessage());
-                    }
-                  	
-                     System.out.println("+--------------------------------------------------------------------------+");
-                     System.out.println("|                         INVOICE DETAILS                   |");
-                     System.out.println("+--------------------------------------------------------------------------+");
-                     System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website");
-                     System.out.printf("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", Main.inv.getInvoNO(), "24574", "244042", "laban@s.com", "w-394.com");
-                     System.out.println("+---------------------------------------------------------------------------+");
-                     for (int i = 0; i < Main.Shpst.invoiceList.size(); i++) {
-                     System.out.printf("| %-10d | %-15d | %-15d | %-15s | %-10s |\n", Main.Shpst.invoiceList.get(i).getInvoNO(),
-                     Main.Shpst.invoiceList.get(i).getPhone(), Main.Shpst.invoiceList.get(i).getFax(),
-                     Main.Shpst.invoiceList.get(i).getEmail(), Main.Shpst.invoiceList.get(i).getWeb());
-                        }
-                     System.out.println("+-----------------------------------------------------------+");
-                    */
 
-                
                 break;
 
             	
             case "4":
         		cntStat4++;
+        		
         
             	break;
             	

@@ -4,15 +4,13 @@ import java.util.ArrayList;
 public class Invoice {
     private int invoNO;
     private int phone;
-    private int numberOfItems;
     private double totalAmount;
     private double balance;
     private String cosName;
     private String date;
     private String email;
-    private int fax;
-    private String website;
-	private ArrayList<Invoice> invoiceList;
+	private double paid;
+	public ArrayList<Item> itemList1;
 
 
     public int getInvoNO() {
@@ -29,14 +27,6 @@ public class Invoice {
 
     public void setPhone(int phone) {
         this.phone = phone;
-    }
-
-    public int getNumberOfItems() {
-        return numberOfItems;
-    }
-
-    public void setNumberOfItems(int numberOfItems) {
-        this.numberOfItems = numberOfItems;
     }
 
     public double getTotalAmount() {
@@ -75,19 +65,45 @@ public class Invoice {
         return email;
     }
     
-    public int getFax() {
-        return fax;
+    public void setEmail(String email) {
+        this.email = email;
     }
     
-    public String getWeb() {
-        return website;
-    }
-
-    public ArrayList<Invoice> getInvoiceList() {
+    /*public ArrayList<Invoice> getInvoiceList() {
         return getInvoiceList();
     }
 
     public void setInvoiceList(ArrayList<Invoice> invoiceList) {
         this.invoiceList = invoiceList;
     }
+    
+    String statisticsReport = generateStatisticsReport();
+    public String generateStatisticsReport() {
+        int totalItems = 0;
+        int totalInvoices = 0;
+        double totalSales = 0;
+
+        for (Invoice invoice : Main.Shpst.invoiceList) {
+            totalInvoices++;
+            for (Item item : Main.inv.getNumberOfItems()) {
+                totalItems += item.getQuantity();
+                totalSales += item.getPrice() * item.getQuantity();
+            }
+        }
+
+        System.out.println("Statistics Report:");
+        System.out.println("Total Items: " + totalItems);
+        System.out.println("Total Invoices: " + totalInvoices);
+        System.out.println("Total Sales: $" + totalSales);
+    }*/
+
+	public double getPaid() {
+		return paid;
+	}
+
+	public void setPaid(double paid) {
+		this.paid = paid;
+	}
+
+
 }

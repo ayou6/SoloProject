@@ -126,6 +126,7 @@ public class Item {
         while (addMoreItems) {
             System.out.print("Enter item name: ");
             String itemName = scn.next();
+            
             inv.itemList1.get(Main.Shpst.invoiceList.size()-1).itemName = itemName;
             System.out.print("Enter item ID: ");
             int id = scn.nextInt();
