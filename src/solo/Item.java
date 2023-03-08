@@ -15,30 +15,37 @@ public class Item {
     int id;
     double price;
     int quantity;
+	Invoice Inv = new Invoice();
 
 
 
     public void addItem() {
         boolean load = true;
         while (load) {
+        	Item Itm = new Item();
+        	Main.myShop.itemList.add(Itm);
+        	
             System.out.print("Enter item name: ");
             String itemName = scn.next();
+            Itm.itemName = itemName;
+            
             System.out.print("Enter item ID: ");
             int id = scn.nextInt();
-            scn.nextLine();
+            Itm.id = id;
+            
             System.out.print("Enter item price: ");
             double price = scn.nextDouble();
-            scn.nextLine(); 
+            Itm.price = price;
+            
             System.out.print("Enter item quantity: ");
             int quantity = scn.nextInt();
-            scn.nextLine();
+            Itm.quantity = quantity;
 
             Item newItem = new Item();
             newItem.itemName = itemName;
             newItem.id = id;
             newItem.price = price;
             newItem.quantity = quantity;
-            Main.Shpst.itemList.add(newItem);
 
             System.out.println("Item added successfully.");
             System.out.println("Do you want to add more? y/n");
@@ -79,7 +86,7 @@ public class Item {
         System.out.print("Enter new item price: ");
         double newPrice = scn.nextDouble();
 
-        for (Item item : Main.Shpst.itemList) {
+        for (Item item : Main.myShop.itemList) {
             if (item.id == itemId) {
                 item.price = newPrice;
                 System.out.println("Item price changed successfully!");
@@ -100,14 +107,14 @@ public class Item {
     public static void reportAllItems() {
         System.out.println("Report All Items");
         System.out.println("-----------------------");
-        for (Item item : Main.Shpst.itemList) {
+        for (Item item : Main.myShop.itemList) {
         System.out.println(item.stringup());
         }
         System.out.println("-----------------------");
 
         
 
-        if (Main.Shpst.itemList.isEmpty()) {
+        if (Main.myShop.itemList.isEmpty()) {
             System.out.println("No items to report.");
             return;
         }
@@ -120,34 +127,34 @@ public class Item {
 
     public void saveItems() {
     	Invoice inv = new Invoice();
-    	Main.Shpst.invoiceList.add(inv);
+    	Main.myShop.invoiceList.add(inv);
         double total = 0;
         boolean addMoreItems = true;
         while (addMoreItems) {
             System.out.print("Enter item name: ");
             String itemName = scn.next();
             
-            inv.itemList1.get(Main.Shpst.invoiceList.size()-1).itemName = itemName;
+            Main.myShop.itemList.get(Main.myShop.invoiceList.size()-1).itemName = itemName;
             System.out.print("Enter item ID: ");
             int id = scn.nextInt();
-            inv.itemList1.get(Main.Shpst.invoiceList.size()-1).id = id;
+            Main.myShop.itemList.get(Main.myShop.invoiceList.size()-1).id = id;
             scn.nextLine();
             System.out.print("Enter item price: ");
             double price = scn.nextDouble();
-            inv.itemList1.get(Main.Shpst.invoiceList.size()-1).price = price;
+            inv.itemList1.get(Main.myShop.invoiceList.size()-1).price = price;
             scn.nextLine();
             System.out.print("Enter item quantity: ");
             int quantity = scn.nextInt();
-            inv.itemList1.get(Main.Shpst.invoiceList.size()-1).quantity =quantity;
+            inv.itemList1.get(Main.myShop.invoiceList.size()-1).quantity =quantity;
 
-            scn.nextLine();
+            
 
             Item newItem = new Item();
             newItem.itemName = itemName;
             newItem.id = id;
             newItem.price = price;
             newItem.quantity = quantity;
-            Main.Shpst.itemList.add(newItem);
+            Main.myShop.itemList.add(newItem);
             double itemTotal = quantity * price;
             total += itemTotal;
 
@@ -163,7 +170,7 @@ public class Item {
                     writer.write("|                         Dukkan Abood                                |\n");
                     writer.write("+--------------------------------------------------------------------------+\n");
                     writer.write(String.format("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website"));
-                    writer.write(String.format("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", Main.inv.getInvoNO(), "24574", "244042", "laban@s.com", "w-394.com"));
+                    writer.write(String.format("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", Inv.getInvoNO(), "24574", "244042", "laban@s.com", "w-394.com"));
                     writer.write("+--------------------------------------------------------------------------+\n");
                     writer.write(String.format("%-20s %-10s %-10s %-10s %-14s\n", "Item Name", "ID", "Price", "Quantity", "Total"));
                 }

@@ -10,9 +10,8 @@ public class Main {
 	static Menu Mainmenu = new Menu();
 	static ShopSet Shpst = new ShopSet();
 	static Item Itm = new Item();
-	public static Invoice Inv = new Invoice();
 	static Shop myShop = new Shop();
-	
+
 	public static void main(String[] args) {
 		int cntStat1 = 0;
 		int cntStat2 = 0;
@@ -24,100 +23,89 @@ public class Main {
 		int cntStat8 = 0;
 		boolean loop = false;
 		while (loop == false) {
-		Mainmenu.Menu();
-	        String choose = Main.scn.next();
-			
-	        switch (choose) {
-	        case "1":
+			Mainmenu.Menu();
+			String choose = Main.scn.next();
+
+			switch (choose) {
+			case "1":
 				cntStat1++;
 
-	        	ShopSet.ShopSet();
-                break;
-                
-            case "2":
-        		cntStat2++;
-
-            	Mainmenu.Menu2();
-            	
-            	break;
-            	
-            case "3":
-                cntStat3++;
-
-               
-                    System.out.println("Add Invoice!");
-                    
-                    System.out.println("Enter Invoice NO: ");
-                    Inv.setInvoNO(scn.nextInt());
-                    Itm.saveItems();
-
-                break;
-
-            	
-            case "4":
-        		cntStat4++;
-        		
-        
-            	break;
-            	
-            case "5":
-        		cntStat5++;
-            	break;
-            case "6":
-            	cntStat6++;
-            	/*{
-				int x = 0;
-				boolean loop1 = true;
-				while (loop1) {
-					System.out.println("Enter Invoice NO: ");
-					int searchInvo = scn.nextInt();
-					for (int i = 0; i < Main.inv.invoiceList.size(); i++) {
-						if (Main.inv.invoNO.equal(searchInvo))
-							System.out.println("School Name: " + mySchool.name);
-							System.out.println("Student Name:" + mySchool.studentList.get(i).stuName);
-							for (int j = 0; j < mySchool.subjectList.size(); j++) {
-								System.out.println(mySchool.subjectList.get(j) + " mark is: "
-										+ mySchool.studentList.get(i).studentSubjectList.get(j).studentMark.mark);
-							}
-							x = x + 1;
-						}
-					}
-					if (x == 0) {
-						System.out.println("NOT FOUND!!!");
-			}
-				}*/
+				ShopSet.ShopSet();
 				break;
 
-            	
-            case "7":
-                cntStat7++;
-                System.out.println("[1] Shop Settings " + cntStat1);
-                System.out.println("[2] Manage Shop Items " + cntStat2);
-                System.out.println("[3] Create New Invoice " + cntStat3);
-                System.out.println("[4] Report: Statistics " + cntStat4);
-                System.out.println("[5] Report: All Invoices " + cntStat5);
-                System.out.println("[6] Search " + cntStat6);
-                System.out.println("[7] Program Statistics " + cntStat7);
-                System.out.println("[8] Exit " + cntStat8);
-                break;
+			case "2":
+				cntStat2++;
 
-            	
-            case "8":
-            	cntStat8++;
-                System.out.print("Are you sure you want to exit? (Y/N): ");
-                String confirm = scn.next();
-                if (confirm.equalsIgnoreCase("Y")) {
-                loop = true;
-           }
+				Mainmenu.Menu2();
 
-                break;
+				break;
 
+			case "3":
+				cntStat3++;
+				Invoice Inv = new Invoice();
+				
+				System.out.println("Add Invoice!");
+				System.out.println("Enter Invoice NO: ");
+				Inv.setInvoNO(scn.nextInt());
+				
+				
+				
+				Itm.saveItems();
 
-            default:
-            	System.out.println("Invalid option. Please choose again.");
-            	break;	
-        	}
-        }      
+				break;
+
+			case "4":
+				cntStat4++;
+				
+
+				break;
+
+			case "5":
+				cntStat5++;
+				break;
+			case "6":
+				cntStat6++;
+				/*
+				 * { int x = 0; boolean loop1 = true; while (loop1) {
+				 * System.out.println("Enter Invoice NO: "); int searchInvo = scn.nextInt(); for
+				 * (int i = 0; i < Main.inv.invoiceList.size(); i++) { if
+				 * (Main.inv.invoNO.equal(searchInvo)) System.out.println("School Name: " +
+				 * mySchool.name); System.out.println("Student Name:" +
+				 * mySchool.studentList.get(i).stuName); for (int j = 0; j <
+				 * mySchool.subjectList.size(); j++) {
+				 * System.out.println(mySchool.subjectList.get(j) + " mark is: " +
+				 * mySchool.studentList.get(i).studentSubjectList.get(j).studentMark.mark); } x
+				 * = x + 1; } } if (x == 0) { System.out.println("NOT FOUND!!!"); } }
+				 */
+				break;
+
+			case "7":
+				cntStat7++;
+				System.out.println("[1] Shop Settings " + cntStat1);
+				System.out.println("[2] Manage Shop Items " + cntStat2);
+				System.out.println("[3] Create New Invoice " + cntStat3);
+				System.out.println("[4] Report: Statistics " + cntStat4);
+				System.out.println("[5] Report: All Invoices " + cntStat5);
+				System.out.println("[6] Search " + cntStat6);
+				System.out.println("[7] Program Statistics " + cntStat7);
+				System.out.println("[8] Exit " + cntStat8);
+				break;
+
+			case "8":
+				cntStat8++;
+				System.out.print("Are you sure you want to exit? (Y/N): ");
+				String confirm = scn.next();
+				if (confirm.equalsIgnoreCase("Y")) {
+					loop = true;
+				}
+
+				break;
+
+			default:
+				System.out.println("Invalid option. Please choose again.");
+				break;
+			}
+		}
 		System.out.println("Good Bye!!!");
 	}
 }

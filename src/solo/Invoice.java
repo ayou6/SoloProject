@@ -11,6 +11,7 @@ public class Invoice {
     private String email;
 	private double paid;
 	public ArrayList<Item> itemList1;
+	private ArrayList<Invoice> invoiceList;
 
 
     public int getInvoNO() {
@@ -69,7 +70,7 @@ public class Invoice {
         this.email = email;
     }
     
-    /*public ArrayList<Invoice> getInvoiceList() {
+    public ArrayList<Invoice> getInvoiceList() {
         return getInvoiceList();
     }
 
@@ -77,25 +78,22 @@ public class Invoice {
         this.invoiceList = invoiceList;
     }
     
-    String statisticsReport = generateStatisticsReport();
     public String generateStatisticsReport() {
         int totalItems = 0;
         int totalInvoices = 0;
         double totalSales = 0;
+        
+        int numOfItems = Main.myShop.itemList.size();
+        int numOfInvoices = Main.myShop.invoiceList.size();
 
-        for (Invoice invoice : Main.Shpst.invoiceList) {
-            totalInvoices++;
-            for (Item item : Main.inv.getNumberOfItems()) {
-                totalItems += item.getQuantity();
-                totalSales += item.getPrice() * item.getQuantity();
-            }
-        }
+        
 
         System.out.println("Statistics Report:");
         System.out.println("Total Items: " + totalItems);
         System.out.println("Total Invoices: " + totalInvoices);
         System.out.println("Total Sales: $" + totalSales);
-    }*/
+		return null;
+    }
 
 	public double getPaid() {
 		return paid;
