@@ -49,7 +49,7 @@ public class Main {
                     
                     System.out.println("Enter Invoice NO: ");
                     inv.setInvoNO(scn.nextInt());
-                    Itm.saveItem();
+                    Itm.saveItems();
                     /* 
                     try {
                         // create a FileOutputStream to write the serialized object to a file

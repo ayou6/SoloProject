@@ -1,0 +1,8 @@
+Milk,1,1000.0,44
+Sugar,2,300.0,100
+choco,9,450.0,3
+yougurt,7,300.0,1
+salt,99,1.0,3
+Iphone,14,310.0,99
+Item Name :Hair,Item Id :887,Item Price:1250.0,Item quantity :1
+googles             7         124.0     1         
