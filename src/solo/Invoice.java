@@ -1,4 +1,5 @@
 package solo;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Invoice {
@@ -12,6 +13,18 @@ public class Invoice {
 	private double paid;
 	public ArrayList<Item> itemList1;
 	private ArrayList<Invoice> invoiceList;
+	
+    public Invoice( int invoNO ,int phone,LocalDate invoiceDate, 
+			ArrayList<Item> itemList1, double totalAmount, double paid, double balance) {
+    	this.invoNO = invoNO;
+		this.cosName = cosName;
+		this.phone = phone;
+		this.date = date;
+		this.itemList1 = itemList1;
+		this.totalAmount = totalAmount;
+		this.paid = paid;
+		this.balance = balance; 
+	}
 
 
     public int getInvoNO() {
