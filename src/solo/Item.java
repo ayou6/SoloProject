@@ -15,7 +15,7 @@ public class Item {
     int id;
     double price;
     int quantity;
-	Invoice Inv = new Invoice();
+
 
 
 
@@ -125,83 +125,8 @@ public class Item {
     }
     
 
-    public void saveItems() {
-        if (Main.myShop.itemList.isEmpty()) {
-            System.out.println("Add some items first!!");
-        } else {
-            Invoice inv = new Invoice();
-            Main.myShop.invoiceList.add(inv);
-            double total = 0;
-            boolean addMoreItems = true;
-            while (addMoreItems) {
-                // Show item list to user               
-                System.out.println("Choose an item from the list:");
-                for (int i = 0; i < Main.myShop.itemList.size(); i++) {
-                    System.out.println(i + 1 + ") " + Main.myShop.itemList.get(i).itemName);
-                }
-                int itemIndex = scn.nextInt() - 1;
-                if (itemIndex < 0 || itemIndex >= Main.myShop.itemList.size()) {
-                    System.out.println("Invalid choice!");
-                    continue;
-                }
-                Item chosenItem = Main.myShop.itemList.get(itemIndex);
 
-                System.out.println("Enter item quantity: ");
-                int quantity = scn.nextInt();
 
-                // Add item to invoice
-                Invoice newInvoiceItem = new Invoice(
-                        chosenItem.itemName,
-                        chosenItem.id,
-                        chosenItem.price,
-                        quantity
-                );
-                inv.itemList1.add(newInvoiceItem);
-
-                double itemTotal = quantity * chosenItem.price;
-                total += itemTotal;
-
-                try {
-                    Path dirPath = Paths.get("C:\\Users\\Lenovo\\eclipse-workspace\\InvoiceSolo/Soloproject");
-                    if (!Files.exists(dirPath)) {
-                        Files.createDirectories(dirPath);
-                    }
-                    String filePath = "C:\\Users\\Lenovo\\eclipse-workspace\\InvoiceSolo/Soloproject/invoice.txt";
-                    BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
-                    if (total == itemTotal) {
-                        writer.write("+--------------------------------------------------------------------------+\n");
-                        writer.write("|                         Dukkan Abood                                |\n");
-                        writer.write("+--------------------------------------------------------------------------+\n");
-                        writer.write(String.format("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", "INVO NO", "Tel", "Fax", "Email", "Website"));
-                        writer.write(String.format("| %-10s | %-15s | %-15s | %-15s | %-10s |\n", inv.getInvoNO(), "24574", "244042", "laban@s.com", "w-394.com"));
-                        writer.write("+--------------------------------------------------------------------------+\n");
-                        writer.write(String.format("%-20s %-10s %-10s %-10s %-14s\n", "Item Name", "ID", "Price", "Quantity", "Total"));
-                    }
-                    writer.write(String.format("%-20s %-10d %-10.2f %-10d %-10.2f\n", chosenItem.itemName, chosenItem.id, chosenItem.price, quantity, itemTotal));
-                    writer.close();
-                    System.out.println("Item added successfully.");
-                } catch (IOException e) {
-                    System.out.println("Error writing to file");
-                }
-
-                System.out.println("Do you want to add more items? y/n");
-                String more = scn.next();
-                if (more.equalsIgnoreCase("y")) {
-                    addMoreItems = true;
-                } else {
-                    addMoreItems = false;
-                try {
-                    String filePath = "C:\\Users\\Lenovo\\eclipse-workspace\\InvoiceSolo/Soloproject/invoice.txt";
-                    BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true));
-                    writer.write(String.format("%-50s %-10.2f\n", "Total:", total));
-                    writer.close();
-                } catch (IOException e) {
-                    System.out.println("Error writing to file");
-                }
-            }
-        }
-    }
-    }
 	public int getPrice() {
 		// TODO Auto-generated method stub
 		return 0;

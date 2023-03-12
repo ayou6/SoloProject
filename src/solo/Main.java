@@ -3,6 +3,7 @@ package solo;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Main {
@@ -11,6 +12,7 @@ public class Main {
 	static ShopSet Shpst = new ShopSet();
 	static Item Itm = new Item();
 	static Shop myShop = new Shop();
+	
 
 	public static void main(String[] args) {
 		int cntStat1 = 0;
@@ -42,15 +44,28 @@ public class Main {
 
 			case "3":
 				cntStat3++;
-				Invoice Inv = new Invoice();
-				
+
+				Invoice newInvoice = new Invoice(0,0,null,null, 0,0,0);
 				System.out.println("Add Invoice!");
+				
 				System.out.println("Enter Invoice NO: ");
-				Inv.setInvoNO(scn.nextInt());
+                newInvoice.setInvoNO(scn.nextInt());
+                System.out.println("Enter Costumer Name:");
+                newInvoice.setCosName(scn.next());
+                System.out.println("Enter Phone No:");
+                newInvoice.setPhone(scn.nextInt());
+                LocalDate Invoicedate = LocalDate.now();
+                newInvoice.setDate(Invoicedate);
+
+                myShop.invoiceList.add(newInvoice);
+                
+                
+		        
+
+
+
 				
 				
-				
-				Itm.saveItems();
 
 				break;
 

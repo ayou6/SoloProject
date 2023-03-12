@@ -8,7 +8,7 @@ public class Invoice {
     private double totalAmount;
     private double balance;
     private String cosName;
-    private String date;
+    private LocalDate date;
     private String email;
 	private double paid;
 	public ArrayList<Item> itemList1;
@@ -67,12 +67,12 @@ public class Invoice {
         this.cosName = cosName;
     }
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDate(LocalDate invoicedate) {
+        this.date = invoicedate;
     }
     
     public String getEmail() {

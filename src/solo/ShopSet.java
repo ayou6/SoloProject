@@ -77,9 +77,14 @@ public class ShopSet {
 
 		}
 	}
+	
+	
 
 	static ArrayList<Invoice> invoiceList = new ArrayList<>();
 	static ArrayList<Item> itemList = new ArrayList<Item>();
 	HashSet<String> mailList = new HashSet<String>();
 
+	
 }
+
+
