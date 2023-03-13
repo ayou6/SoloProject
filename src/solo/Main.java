@@ -47,22 +47,55 @@ public class Main {
 
 				Invoice newInvoice = new Invoice(0,0,null,null, 0,0,0);
 				System.out.println("Add Invoice!");
-				
+
 				System.out.println("Enter Invoice NO: ");
-                newInvoice.setInvoNO(scn.nextInt());
-                System.out.println("Enter Costumer Name:");
-                newInvoice.setCosName(scn.next());
-                System.out.println("Enter Phone No:");
-                newInvoice.setPhone(scn.nextInt());
-                LocalDate Invoicedate = LocalDate.now();
-                newInvoice.setDate(Invoicedate);
+				newInvoice.setInvoNO(scn.nextInt());
+				System.out.println("Enter Customer Name:");
+				newInvoice.setCosName(scn.next());
+				System.out.println("Enter Phone No:");
+				newInvoice.setPhone(scn.nextInt());
+				LocalDate invoiceDate = LocalDate.now();
+				newInvoice.setDate(invoiceDate);
 
-                myShop.invoiceList.add(newInvoice);
-                
-                
-		        
+				if (myShop.itemList.isEmpty()) {
+				    System.out.println("Add some items first!!");
+				} else {
+				    boolean doneAddingItems = false;
+				    while (!doneAddingItems) {
+				        System.out.println("Choose an item from the list:");
+				        for (int i = 0; i < Main.myShop.itemList.size(); i++) {
+				            System.out.println(i + 1 + ") " + Main.myShop.itemList.get(i).itemName);
+				        }
+				        int itemNo = scn.nextInt() - 1;
+				        if (itemNo < 0 || itemNo >= Main.myShop.itemList.size()) {
+				            System.out.println("Invalid choice!");
+				            continue;
+				        }
+				        Item chosenItem = Main.myShop.itemList.get(itemNo);
+				        System.out.println("Enter item quantity: ");
+				        int quantity = scn.nextInt();
+				        chosenItem.quantity = quantity;
+				        newInvoice.itemList1.add(chosenItem);
+				        
+				        System.out.println("Do you want to add more items? (Y/N)");
+				        String answer = scn.next();
+				        doneAddingItems = answer.equalsIgnoreCase("N");
+				    }
 
-
+				    myShop.invoiceList.add(newInvoice);
+				    System.out.println("Invoice created and added to the list!");
+				    System.out.println("=================================");
+				    System.out.println(Shpst.tel);
+				    System.out.println(Shpst.shopName);
+				    System.out.println(Shpst.fax);
+				    System.out.println(Shpst.email);
+				    System.out.println(newInvoice.getInvoNO());
+				    System.out.println(newInvoice.getCosName());
+				    System.out.println(newInvoice.itemList1);
+				    System.out.println(newInvoice.getTotalAmount());
+				    System.out.println(newInvoice.getDate());
+				    }
+				
 
 				
 				
