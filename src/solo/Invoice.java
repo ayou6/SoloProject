@@ -1,31 +1,20 @@
 package solo;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Invoice {
     private int invoNO;
     private int phone;
-    private double totalAmount;
+    private double totalAmount = 0;
     private double balance;
     private String cosName;
     private LocalDate date;
     private String email;
 	private double paid;
-	public ArrayList<Item> itemList1;
-	private ArrayList<Invoice> invoiceList;
+	public List<Item> itemList1 = new ArrayList <Item> ();
 	
-    public Invoice( int invoNO ,int phone,LocalDate invoiceDate, 
-			ArrayList<Item> itemList1, double totalAmount, double paid, double balance) {
-    	this.invoNO = invoNO;
-		this.cosName = cosName;
-		this.phone = phone;
-		this.date = date;
-		this.itemList1 = itemList1;
-		this.totalAmount = totalAmount;
-		this.paid = paid;
-		this.balance = balance; 
-	}
-
+   
 
     public int getInvoNO() {
         return invoNO;
@@ -87,10 +76,7 @@ public class Invoice {
         return getInvoiceList();
     }
 
-    public void setInvoiceList(ArrayList<Invoice> invoiceList) {
-        this.invoiceList = invoiceList;
-    }
-    
+
     public String generateStatisticsReport() {
         int totalItems = 0;
         int totalInvoices = 0;

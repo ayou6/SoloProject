@@ -12,7 +12,6 @@ public class Main {
 	static ShopSet Shpst = new ShopSet();
 	static Item Itm = new Item();
 	static Shop myShop = new Shop();
-	
 
 	public static void main(String[] args) {
 		int cntStat1 = 0;
@@ -45,7 +44,9 @@ public class Main {
 			case "3":
 				cntStat3++;
 
-				Invoice newInvoice = new Invoice(0,0,null,null, 0,0,0);
+				Invoice newInvoice = new Invoice();
+				myShop.invoiceList.add(newInvoice);
+
 				System.out.println("Add Invoice!");
 
 				System.out.println("Enter Invoice NO: ");
@@ -58,53 +59,67 @@ public class Main {
 				newInvoice.setDate(invoiceDate);
 
 				if (myShop.itemList.isEmpty()) {
-				    System.out.println("Add some items first!!");
+					System.out.println("Add some items first!!");
 				} else {
-				    boolean doneAddingItems = false;
-				    while (!doneAddingItems) {
-				        System.out.println("Choose an item from the list:");
-				        for (int i = 0; i < Main.myShop.itemList.size(); i++) {
-				            System.out.println(i + 1 + ") " + Main.myShop.itemList.get(i).itemName);
-				        }
-				        int itemNo = scn.nextInt() - 1;
-				        if (itemNo < 0 || itemNo >= Main.myShop.itemList.size()) {
-				            System.out.println("Invalid choice!");
-				            continue;
-				        }
-				        Item chosenItem = Main.myShop.itemList.get(itemNo);
-				        System.out.println("Enter item quantity: ");
-				        int quantity = scn.nextInt();
-				        chosenItem.quantity = quantity;
-				        newInvoice.itemList1.add(chosenItem);
-				        
-				        System.out.println("Do you want to add more items? (Y/N)");
-				        String answer = scn.next();
-				        doneAddingItems = answer.equalsIgnoreCase("N");
-				    }
+					boolean doneAddingItems = false;
+					while (!doneAddingItems) {
+						System.out.println("Choose an item from the list:");
+						for (int i = 0; i < Main.myShop.itemList.size(); i++) {
+							System.out.println(i + 1 + ") " + Main.myShop.itemList.get(i).itemName);
+						}
+						int itemNo = scn.nextInt() - 1;
+						if (itemNo < 0 || itemNo >= Main.myShop.itemList.size()) {
+							System.out.println("Invalid choice!");
+							continue;
+						}
+						newInvoice.itemList1.add(myShop.itemList.get(itemNo));
+						newInvoice.itemList1.get(itemNo).price = myShop.itemList.get(itemNo).price;
+						System.out.println("Enter item quantity: ");
+						int quantity = scn.nextInt();
+						newInvoice.itemList1.get(itemNo).quantity = quantity;
+						double total = newInvoice.itemList1.get(itemNo).quantity
+								* newInvoice.itemList1.get(itemNo).price;
+						newInvoice.itemList1.get(itemNo).qty = total;
 
-				    myShop.invoiceList.add(newInvoice);
-				    System.out.println("Invoice created and added to the list!");
-				    System.out.println("=================================");
-				    System.out.println(Shpst.tel);
-				    System.out.println(Shpst.shopName);
-				    System.out.println(Shpst.fax);
-				    System.out.println(Shpst.email);
-				    System.out.println(newInvoice.getInvoNO());
-				    System.out.println(newInvoice.getCosName());
-				    System.out.println(newInvoice.itemList1);
-				    System.out.println(newInvoice.getTotalAmount());
-				    System.out.println(newInvoice.getDate());
-				    }
-				
+						System.out.println("Do you want to add more items? (Y/N)");
+						String answer = scn.next();
+						doneAddingItems = answer.equalsIgnoreCase("N");
+					}
 
-				
-				
+					System.out.println("Invoice created and added to the list!");
+					System.out.println("=================================");
+
+					System.out.println(
+							"+=====================================================================================+");
+					System.out.println("| |                                       " + myShop.shopName
+							+ "                                             |");
+					System.out.println(
+							"+--------------------------------------------------------------------------------------+");
+					System.out.println("| | email: " + myShop.email + " | fax: " + myShop.fax + " | web: "
+							+ myShop.website + " |");
+					System.out.println("| | " + newInvoice.getDate() + " | " + newInvoice.getInvoNO() + " | "
+							+ newInvoice.getCosName() + " |");
+					System.out.println(
+							"+=========================================================================================+");
+					System.out.println("| Items |");
+					double total = 0;
+					for (int i = 0; i < newInvoice.itemList1.size(); i++) {
+						System.out.println("| | | | | " + newInvoice.itemList1.get(i).itemName + " |"
+								+ newInvoice.itemList1.get(i).quantity);
+						total = total + newInvoice.itemList1.get(i).qty;
+					}
+					System.out.println("| | | | |");
+					System.out.println("| | | | |");
+					System.out.println("| | |");
+					System.out.println("| Total: R.O " + total  + " |");
+					System.out.println(
+							"+=========================================================================================+");
+				}
 
 				break;
 
 			case "4":
 				cntStat4++;
-				
 
 				break;
 

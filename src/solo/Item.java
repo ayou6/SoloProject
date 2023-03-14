@@ -15,6 +15,7 @@ public class Item {
     int id;
     double price;
     int quantity;
+    double qty;
 
 
 

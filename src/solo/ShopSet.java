@@ -22,20 +22,20 @@ public class ShopSet {
 			switch (choose) {
 			case "1":
 				/*
-				 * Boolean Load = true; while (Load) { System.out.println("INVOICE DETAILS :");
-				 * 
-				 * System.out.println("Enter Invoice NO: "); Main.inv.setInvoNO(scn.nextInt());
-				 * 
-				 * System.out.println("Enter Costumer Name"); Main.inv.setCosName(scn.next());
-				 * 
-				 * System.out.println("Enter Phone NO :"); Main.inv.setPhone(scn.nextInt());
-				 * 
-				 * System.out.println("No Of Items"); Main.inv.setNumberOfItems(scn.nextInt());
-				 * 
-				 * System.out.println("Total :"); Main.inv.setTotalAmount(scn.nextDouble());
-				 * 
+				 * Boolean Load = true; 
+				 while (Load) { System.out.println("INVOICE DETAILS :");
+				 * System.out.println("Enter Invoice NO: ");
+				 Main.setInvoNO(Main.scn.nextInt());
+				 * System.out.println("Enter Costumer Name");
+				 Main.inv.setCosName(Main.scn.next());
+				 * System.out.println("Enter Phone NO :");
+				 Main.inv.setPhone(Main.scn.nextInt());
+				 * System.out.println("No Of Items");
+				 Main.inv.setNumberOfItems(Main.scn.nextInt());
+				 * System.out.println("Total :");
+				 Main.inv.setTotalAmount(Main.scn.nextDouble());
 				 * invoiceList.add(Main.inv);
-				 * System.out.println("Do you want to add more? y/n"); String more = scn.next();
+				 * System.out.println("Do you want to add more? y/n"); String more = Main.scn.next();
 				 * if (more.equalsIgnoreCase("y")) { Load = true; } else { Load = false; }
 				 * 
 				 * }

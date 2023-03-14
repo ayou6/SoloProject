@@ -11,6 +11,7 @@ public class Shop {
     int fax;
     ArrayList<Item>  itemList = new ArrayList<Item>();
     ArrayList<Invoice>  invoiceList = new ArrayList<Invoice>();
+    
 
 }
 	
