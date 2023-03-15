@@ -1,6 +1,7 @@
 package solo;
 
 public class Menu {
+	
 	public void Menu() {
 		System.out.println(" -----------");
 		System.out.println("| Main Menu |");

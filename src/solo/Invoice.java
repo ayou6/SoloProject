@@ -84,6 +84,7 @@ public class Invoice {
         
         int numOfItems = Main.myShop.itemList.size();
         int numOfInvoices = Main.myShop.invoiceList.size();
+        
 
         
 

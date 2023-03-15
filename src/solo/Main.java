@@ -1,5 +1,6 @@
 package solo;
 
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -23,7 +24,7 @@ public class Main {
 		int cntStat8 = 0;
 		boolean loop = false;
 		while (loop == false) {
-			
+
 			Mainmenu.Menu();
 			String choose = scn.next();
 
@@ -91,12 +92,12 @@ public class Main {
 
 					System.out.println(
 							"+=====================================================================================+");
-					System.out.println("| |                                       " + myShop.shopName
+					System.out.println("| |                                       " + Shpst.shopName
 							+ "                                             |");
 					System.out.println(
 							"+--------------------------------------------------------------------------------------+");
-					System.out.println("| | email: " + myShop.email + " | fax: " + myShop.fax + " | web: "
-							+ myShop.website + " |");
+					System.out.println("| | email: " + Shpst.email + " | fax: " + Shpst.fax + " | web: "
+							+ Shpst.website + " |");
 					System.out.println("| | " + newInvoice.getDate() + " | " + newInvoice.getInvoNO() + " | "
 							+ newInvoice.getCosName() + " |");
 					System.out.println(
@@ -114,40 +115,40 @@ public class Main {
 					System.out.println("| Total: R.O " + total + " |");
 					System.out.println(
 							"+=========================================================================================+");
+					FileOutputStream fos = null;
 					try {
-						FileWriter writer = new FileWriter("invoices.txt", true);
-						writer.write("=================================\n");
-						writer.write(
-								"+=====================================================================================+\n");
-						writer.write("| |                                       " + myShop.shopName
-								+ "                                             |\n");
-						writer.write(
-								"+--------------------------------------------------------------------------------------+\n");
-						writer.write("| | email: " + myShop.email + " | fax: " + myShop.fax + " | web: "
-								+ myShop.website + " |\n");
-						writer.write("| | " + newInvoice.getDate() + " | " + newInvoice.getInvoNO() + " | "
-								+ newInvoice.getCosName() + " |\n");
-						writer.write(
-								"+=========================================================================================+\n");
-						writer.write("| Items |\n");
+						fos = new FileOutputStream("invoices.txt", true);
+						String data = "=================================\n"
+								+ "+=====================================================================================+\n"
+								+ "| |                                       " + Shpst.shopName
+								+ "                                             |\n"
+								+ "+--------------------------------------------------------------------------------------+\n"
+								+ "| | email: " + Shpst.email + " | fax: " + Shpst.fax + " | web: " + Shpst.website
+								+ " |\n" + "| | " + newInvoice.getDate() + " | " + newInvoice.getInvoNO() + " | "
+								+ newInvoice.getCosName() + " |\n"
+								+ "+=========================================================================================+\n"
+								+ "| Items |\n";
 						double total1 = 0;
 						for (int i = 0; i < newInvoice.itemList1.size(); i++) {
-							writer.write("| | | | | " + newInvoice.itemList1.get(i).itemName + " |"
-									+ newInvoice.itemList1.get(i).quantity + "\n");
+							data += "| | | | | " + newInvoice.itemList1.get(i).itemName + " |"
+									+ newInvoice.itemList1.get(i).quantity + "\n";
 							total1 = total1 + newInvoice.itemList1.get(i).qty;
 						}
-						writer.write("| | | | |\n");
-						writer.write("| | | | |\n");
-						writer.write("| | |\n");
-						writer.write("| Total: R.O " + total1 + " |\n");
-						writer.write(
-								"+=========================================================================================+\n");
-
-						writer.close();
+						data += "| | | | |\n" + "| | | | |\n" + "| | |\n" + "| Total: R.O " + total1 + " |\n"
+								+ "+=========================================================================================+\n";
+						fos.write(data.getBytes());
 						System.out.println("Successfully wrote to the file.");
 					} catch (IOException e) {
 						System.out.println("An error occurred.");
 						e.printStackTrace();
+					} finally {
+						if (fos != null) {
+							try {
+								fos.close();
+							} catch (IOException e) {
+								e.printStackTrace();
+							}
+						}
 					}
 
 				}
