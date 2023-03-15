@@ -68,6 +68,8 @@ public class Serielized implements Serializable {
 		class MyObject {
 		    // Define your object properties here
 	}*/
+		 
+		 
 		}
 
 }
