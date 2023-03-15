@@ -1,4 +1,5 @@
 package solo;
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
@@ -22,14 +23,15 @@ public class Main {
 		int cntStat8 = 0;
 		boolean loop = false;
 		while (loop == false) {
+			
 			Mainmenu.Menu();
-			String choose = Main.scn.next();
+			String choose = scn.next();
 
 			switch (choose) {
 			case "1":
 				cntStat1++;
 
-				ShopSet.ShopSet();
+				ShopSet.ShopSettings(scn);
 				break;
 
 			case "2":
@@ -109,40 +111,46 @@ public class Main {
 					System.out.println("| | | | |");
 					System.out.println("| | | | |");
 					System.out.println("| | |");
-					System.out.println("| Total: R.O " + total  + " |");
+					System.out.println("| Total: R.O " + total + " |");
 					System.out.println(
 							"+=========================================================================================+");
 					try {
-						 FileWriter writer = new FileWriter("invoices.txt", true);
-						 writer.write("=================================\n");
-						 writer.write("+=====================================================================================+\n");
-						 writer.write("| |                                       " + myShop.shopName + "                                             |\n");
-						 writer.write("+--------------------------------------------------------------------------------------+\n");
-						 writer.write("| | email: " + myShop.email + " | fax: " + myShop.fax + " | web: " + myShop.website + " |\n");
-						 writer.write("| | " + newInvoice.getDate() + " | " + newInvoice.getInvoNO() + " | " + newInvoice.getCosName() + " |\n");
-						 writer.write("+=========================================================================================+\n");
-						 writer.write("| Items |\n");
-						 double total1 = 0;
-						 for (int i = 0; i < newInvoice.itemList1.size(); i++) {
-						     writer.write("| | | | | " + newInvoice.itemList1.get(i).itemName + " |" + newInvoice.itemList1.get(i).quantity + "\n");
-						     total1 = total1 + newInvoice.itemList1.get(i).qty;
-						 }
-						 writer.write("| | | | |\n");
-						 writer.write("| | | | |\n");
-						 writer.write("| | |\n");
-						 writer.write("| Total: R.O " + total1  + " |\n");
-						 writer.write("+=========================================================================================+\n");
-						 
-						 writer.close();
-						 System.out.println("Successfully wrote to the file.");
-						 } catch (IOException e) {
-						 System.out.println("An error occurred.");
-						 e.printStackTrace();
-						 }
+						FileWriter writer = new FileWriter("invoices.txt", true);
+						writer.write("=================================\n");
+						writer.write(
+								"+=====================================================================================+\n");
+						writer.write("| |                                       " + myShop.shopName
+								+ "                                             |\n");
+						writer.write(
+								"+--------------------------------------------------------------------------------------+\n");
+						writer.write("| | email: " + myShop.email + " | fax: " + myShop.fax + " | web: "
+								+ myShop.website + " |\n");
+						writer.write("| | " + newInvoice.getDate() + " | " + newInvoice.getInvoNO() + " | "
+								+ newInvoice.getCosName() + " |\n");
+						writer.write(
+								"+=========================================================================================+\n");
+						writer.write("| Items |\n");
+						double total1 = 0;
+						for (int i = 0; i < newInvoice.itemList1.size(); i++) {
+							writer.write("| | | | | " + newInvoice.itemList1.get(i).itemName + " |"
+									+ newInvoice.itemList1.get(i).quantity + "\n");
+							total1 = total1 + newInvoice.itemList1.get(i).qty;
+						}
+						writer.write("| | | | |\n");
+						writer.write("| | | | |\n");
+						writer.write("| | |\n");
+						writer.write("| Total: R.O " + total1 + " |\n");
+						writer.write(
+								"+=========================================================================================+\n");
 
-					
+						writer.close();
+						System.out.println("Successfully wrote to the file.");
+					} catch (IOException e) {
+						System.out.println("An error occurred.");
+						e.printStackTrace();
+					}
+
 				}
-				
 
 				break;
 
