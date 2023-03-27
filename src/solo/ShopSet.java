@@ -10,8 +10,11 @@ public class ShopSet {
 	String website;
 	int tel;
 	int fax;
+	static ArrayList<ShopSet> headerList = new ArrayList<>();
+    JDBC jdbc = new JDBC();
 
-	public static ShopSet settingInvoiceHeader(ShopSet shopToSet , Scanner scn) {
+
+	public static ShopSet settingInvoiceHeader(ShopSet shopToSet, Scanner scn) {
 
 		System.out.println("Shop Data ");
 		System.out.println("Tel :");
@@ -22,7 +25,7 @@ public class ShopSet {
 		shopToSet.fax = scn.nextInt();
 
 		System.out.println("Email:");
-		shopToSet.email =scn.next();
+		shopToSet.email = scn.next();
 
 		System.out.println("Website :");
 		shopToSet.website = scn.next();
@@ -62,6 +65,7 @@ public class ShopSet {
 				System.out.println("Enter Shop Name :");
 				String shopName = scan.next();
 				shop.shopName = shopName;
+				headerList.add(shop);
 				break;
 
 			case "3":
@@ -78,6 +82,11 @@ public class ShopSet {
 
 				System.out.println("Website :");
 				shop.website = scan.next();
+
+				headerList.add(shop);
+
+				JDBC.createShopTable();
+				JDBC.insertShopDetails();
 
 				break;
 
@@ -97,7 +106,5 @@ public class ShopSet {
 	static ArrayList<Invoice> invoiceList = new ArrayList<>();
 	static ArrayList<Item> itemList = new ArrayList<Item>();
 	HashSet<String> mailList = new HashSet<String>();
-
-	
 
 }

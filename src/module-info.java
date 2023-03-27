@@ -6,4 +6,5 @@
  *
  */
 module InvoiceSolo {
+	requires java.sql;
 }

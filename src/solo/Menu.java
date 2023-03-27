@@ -1,5 +1,7 @@
 package solo;
 
+
+
 public class Menu {
 	
 	public void Menu() {
@@ -20,6 +22,8 @@ public class Menu {
 public void Menu2() {
 	Boolean Load = true;
 	    while (Load) {
+	       JDBC jdbc = new JDBC();
+
 	        System.out.println(" -----------");
 	        System.out.println("| Manage Shop items |");
 	        System.out.println(" -----------");
@@ -32,15 +36,18 @@ public void Menu2() {
 	        switch (choose) {
 	            case "1":
 	                Main.Itm.addItem();
+	               jdbc.createItemTable();
+	                JDBC.insertIntoItems();
 	                break;
 	            case "2":
-	                Main.Itm.deleteItem();
+	                Item.deleteItem();
+	                JDBC. deleteFromItems();
 	                break;
 	            case "3":
-	                Main.Itm.changeItemPrice();
+	                Item.changeItemPrice();
 	                break;
 	            case "4":
-	                Main.Itm.reportAllItems();
+	                Item.reportAllItems();
 	                break;
 	            case "5":
 	                System.out.println("Good Bye!!!");

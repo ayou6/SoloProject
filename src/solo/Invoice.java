@@ -77,23 +77,12 @@ public class Invoice {
     }
 
 
-    public String generateStatisticsReport() {
-        int totalItems = 0;
-        int totalInvoices = 0;
-        double totalSales = 0;
-        
-        int numOfItems = Main.myShop.itemList.size();
-        int numOfInvoices = Main.myShop.invoiceList.size();
+
         
 
         
 
-        System.out.println("Statistics Report:");
-        System.out.println("Total Items: " + totalItems);
-        System.out.println("Total Invoices: " + totalInvoices);
-        System.out.println("Total Sales: $" + totalSales);
-		return null;
-    }
+
 
 	public double getPaid() {
 		return paid;

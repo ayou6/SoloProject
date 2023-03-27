@@ -16,7 +16,7 @@ public class Item {
     double price;
     int quantity;
     double qty;
-
+    Serielized se = new Serielized();
 
 
 
@@ -49,6 +49,7 @@ public class Item {
             newItem.quantity = quantity;
 
             System.out.println("Item added successfully.");
+            Serielized.saveItemsSerialized();
             System.out.println("Do you want to add more? y/n");
             String more = scn.next();
             if (more.equalsIgnoreCase("y")) {
@@ -60,14 +61,14 @@ public class Item {
         }
     }
 
-    public static void deleteItem() {
+    public static int deleteItem() {
         System.out.print("Enter item ID to delete: ");
         int id = scn.nextInt();
 
         boolean found = false;
-        for (Item item : ShopSet.itemList) {
-            if (item.id == id) {
-            	ShopSet.itemList.remove(item);
+        for (int i =0; i<Main.myShop.itemList.size(); i++ ) {
+            if (Main.myShop.itemList.get(i).id == id) {
+            	Main.myShop.itemList.remove((id-1));
                 found = true;
                 break;
             }
@@ -78,6 +79,7 @@ public class Item {
         } else {
             System.out.println("Item not found.");
         }
+        return id;
     }
 
     public static void changeItemPrice() {

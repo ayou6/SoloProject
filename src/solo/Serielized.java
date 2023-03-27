@@ -14,62 +14,42 @@ import java.util.ArrayList;
 
 public class Serielized implements Serializable {
  
-	private static void saveItemsSerialized(ArrayList<Serielized> items)
+	 static void saveItemsSerialized()
 {
-		 try {
-		 FileOutputStream fos = new FileOutputStream("items.txt");
-		 ObjectOutputStream oos = new ObjectOutputStream(fos);
-		 oos.writeObject(items);
-		 oos.close();
-		 fos.close();
-		 System.out.println("Items saved(serialized) successfully.");
-		 }
-		 catch (IOException ioe) {
-		 ioe.printStackTrace();
-	  }
-		 /*
-   }
-	
+		Shop myShop = new Shop();
+		 try{
+		       FileOutputStream file = new FileOutputStream("ItemList.txt");
+		       ObjectOutputStream out = new ObjectOutputStream(file);
+		       
+		       out.writeObject(myShop.itemList);
+		       
+		       out.close();
+		       file.close();
+		       System.out.println("serialized and saved");
 
-		    
-		    public static void main(String[] args) {
-		        String apiUrl = "https://example.com/api/endpoint";
-		        try {
-		            URL url = new URL(apiUrl);
-		            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-		            conn.setRequestMethod("GET");
-		            conn.setRequestProperty("Accept", "application/json");
-		            
-		            if (conn.getResponseCode() != 200) {
-		                throw new RuntimeException("HTTP error code : " + conn.getResponseCode());
-		            }
-		            
-		            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
-		            String output;
-		            StringBuilder json = new StringBuilder();
-		            
-		            while ((output = br.readLine()) != null) {
-		                json.append(output);
-		            }
-		            
-		            conn.disconnect();
-		            
-		            Gson gson = new Gson();
-		            MyObject myObj = gson.fromJson(json.toString(), MyObject.class);
-		            
-		            // Use myObj for further processing
-		            
-		        } catch (Exception e) {
-		            e.printStackTrace();
-		        }
-		    }
-		}
+		   }catch (Exception e){
+		     e.printStackTrace();
 
-		class MyObject {
-		    // Define your object properties here
-	}*/
-		 
-		 
-		}
+		   }
+}
+	 
+	 static void saveInvoicesSerialized()
+	 {
+	 		Shop myShop = new Shop();
+	 		 try{
+	 		       FileOutputStream file = new FileOutputStream("Invoicess.txt");
+	 		       ObjectOutputStream out = new ObjectOutputStream(file);
+	 		       
+	 		       out.writeObject(myShop.invoiceList);
+	 		       
+	 		       out.close();
+	 		       file.close();
+	 		       System.out.println("serialized and saved");
+
+	 		   }catch (Exception e){
+	 		     e.printStackTrace();
+
+	 		   }
+	 }
 
 }
